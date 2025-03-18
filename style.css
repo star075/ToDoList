@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #ced3df;
+}
+
+.container {
+  width: 80%;
+  max-width: 400px;
+  height: 600px;
+  overflow-y: scroll;
+  margin: 50px auto;
+  background-color: #f1f0f7;
+  box-shadow: 9px 11px 5px 0px rgba(125, 124, 125, 1);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.header {
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+  background: linear-gradient(
+    166deg,
+    rgba(237, 193, 211, 1) 0%,
+    rgba(219, 192, 216, 1) 35%,
+    rgba(127, 188, 242, 1) 100%
+  );
+  border-radius: 20px 20px 0 0;
+}
+
+.categories {
+  padding: 1rem;
+}
+
+.category {
+  background: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.items {
+  padding-left: 10px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.item_done span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-input {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  border: none;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+}
+
+.task-add-btn {
+  margin-right: 5px;
+}
+
+.fa-plus-category {
+  font-size: 16px;
+  padding: 5px 10px;
+  background-color: rgb(198, 180, 238);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+span {
+  padding-left: 20px;
+}
+
+/* .fa-plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: right;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  font-size: 1.5rem;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  transition: 0.3s;
+  transform: translateY(-10px);
+  cursor: pointer;
+} */
+
+/* .fa-plus:hover {
+  transform: translateY(-15px) scale(1.1);
+} */
+
+.fa-check,
+.fa-trash-can {
+  font-size: 16px;
+  transition: 0.3s;
+}
+.fa-check:hover {
+  color: dodgerblue;
+}
+.fa-trash-can:hover {
+  color: red;
+  transform: scale(1.1);
+}
+.fa-check {
+  position: fixed;
+}
