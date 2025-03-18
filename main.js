@@ -1,9 +1,9 @@
-const addCategoryBtn = document.querySelector('.fa-plus-category'); // 카테고리 추가 버튼
-const categoryContainer = document.querySelector('.categories'); // 카테고리 컨테이너
+const addCategoryBtn = document.querySelector('.fa-plus-category');
+const categoryContainer = document.querySelector('.categories');
 
 // addCategory: 새로운 카테고리 추가
 function addCategory() {
-  const categoryName = prompt('새 카테고리 이름을 입력하세요:');
+  const categoryName = prompt('새 카테고리 이름을 입력하세요:').trim();
   if (!categoryName) return;
 
   // 카테고리 요소 생성
@@ -23,6 +23,9 @@ function addCategory() {
   category
     .querySelector('.task-add-btn')
     .addEventListener('click', () => addTask(category.querySelector('.items')));
+
+  // 드래그 앤 드롭 활성화
+  enableDragAndDrop();
 }
 
 // addTask: 할 일 추가
@@ -36,7 +39,11 @@ function addTask(taskList) {
   taskInput.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
       const text = taskInput.value.trim();
-      if (!text) return;
+      if (!text) {
+        taskInput.value = ''; // 입력값이 없을 경우 초기화
+        taskInput.focus();
+        return;
+      }
 
       const taskItem = document.createElement('li');
       taskItem.className = 'item';
@@ -57,9 +64,39 @@ function addTask(taskList) {
       });
 
       taskList.replaceChild(taskItem, taskInput);
+
+      // 스크롤 자동 이동 (입력된 할 일로 포커스 이동)
+      setTimeout(() => taskItem.scrollIntoView({ block: 'center' }), 0);
+      requestAnimationFrame(() => taskItem.scrollIntoView({ block: 'center' }));
+
+      // 드래그 앤 드롭 활성화
+      enableDragAndDrop();
     }
   });
 }
+
+// 드래그 앤 드롭 활성화 함수
+function enableDragAndDrop() {
+  document.querySelectorAll('.items').forEach((taskList) => {
+    new Sortable(taskList, {
+      animation: 150,
+      group: 'shared', // 카테고리 간 이동 가능
+      ghostClass: 'dragging',
+      onEnd: function (evt) {
+        console.log(`Moved item from ${evt.from} to ${evt.to}`);
+      },
+    });
+  });
+
+  new Sortable(categoryContainer, {
+    animation: 150,
+    group: 'categories', // 카테고리 이동 가능
+    ghostClass: 'dragging',
+  });
+}
+
+// 초기 실행 시 드래그 앤 드롭 활성화
+enableDragAndDrop();
 
 // 카테고리 추가 버튼 이벤트 등록
 addCategoryBtn.addEventListener('click', addCategory);

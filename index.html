@@ -12,31 +12,23 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
     <script src="./main.js" defer></script>
   </head>
   <body>
     <section class="container">
-      <header class="header"><h1>오늘의 할일</h1></header>
+      <header class="header"><h1>Todo List</h1></header>
       <div class="categories">
-        <!-- <ul class="items"> -->
-        <!-- <li class="item item_done">
-            <span>오늘의 할일 리스트1</span>
-            <i class="fa-solid fa-check"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </li>
-          <li class="item">
-            <span>오늘의 할일 리스트1</span>
-            <i class="fa-solid fa-check"></i>
-            <i class="fa-solid fa-trash-can"></i>
-          </li> -->
-        <!-- </ul> -->
+        <!-- 카테고리 & 아이템 리스트 -->
       </div>
-      <!-- <footer class="footer">
-        <input type="text" class="footer_input" />
-        <i class="fa-solid fa-plus"></i>
-      </footer> -->
       <footer class="footer">
-        <button class="fa-solid fa-plus-category">+ 카테고리</button>
+        <button class="fa-solid fa-plus-category" id="add-category-btn">
+          + 카테고리
+        </button>
       </footer>
     </section>
   </body>
@@ -45,5 +37,4 @@
 <!-- 
 defer 키워드
 - script를 읽기 전 아래 요소부터 읽음
-
 -->
